@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cdk2dblf5bs8a"]
+
+[ext_resource type="Script" uid="uid://cvfqfttv5tqwt" path="res://ui/score/score.gd" id="1_q4twa"]
+
+[node name="Score" type="CanvasLayer" unique_id=376589245]
+script = ExtResource("1_q4twa")
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=2121995914]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=2072618373]
+custom_minimum_size = Vector2(200, 25)
+offset_left = 500.0
+offset_right = 700.0
+offset_bottom = 27.0
+
+[node name="WeaponLabel" type="Label" parent="." unique_id=687459473]
+custom_minimum_size = Vector2(200, 50)
+offset_left = 936.45
+offset_right = 1136.4507
+offset_bottom = 50.0

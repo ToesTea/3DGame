@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://car0qwswnlp78"]
+
+[ext_resource type="Script" uid="uid://bqwiusah7fx7e" path="res://ui/menus/main_menu/main_menu.gd" id="1_lwm1y"]
+
+[node name="MainMenu" type="Control" unique_id=1680051019]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lwm1y")
+
+[node name="StartButton" type="Button" parent="." unique_id=165100813]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 195.0
+offset_right = 632.0
+offset_bottom = 250.66837
+scale = Vector2(1, 0.98799384)
+text = "Start"
+
+[node name="SettingsButton" type="Button" parent="." unique_id=210723217]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 272.0
+offset_right = 632.0
+offset_bottom = 327.66837
+scale = Vector2(1, 0.98799384)
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="." unique_id=140988314]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 346.0
+offset_right = 632.0
+offset_bottom = 401.66837
+scale = Vector2(1, 0.98799384)
+text = "Exit"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://brgavworkgh5y"]
+
+[ext_resource type="Script" uid="uid://dkvyk1vhv5e1a" path="res://content/gameplay/gameplay.gd" id="1_uk44f"]
+[ext_resource type="PackedScene" uid="uid://c88xdlks3mvuy" path="res://content/entities/coin/coin.tscn" id="2_yvprt"]
+[ext_resource type="PackedScene" uid="uid://80nxylac8c42" path="res://content/levels/level_01/level_01.tscn" id="4_nimes"]
+[ext_resource type="PackedScene" uid="uid://cx1hp67bnpmau" path="res://content/entities/player/player.tscn" id="5_2okcp"]
+[ext_resource type="PackedScene" uid="uid://cdk2dblf5bs8a" path="res://ui/score/score.tscn" id="6_vyivm"]
+
+[node name="Main" type="Node3D" unique_id=1291075038]
+script = ExtResource("1_uk44f")
+coin_scene = ExtResource("2_yvprt")
+
+[node name="Score" parent="." unique_id=376589245 instance=ExtResource("6_vyivm")]
+
+[node name="Terrain" parent="." unique_id=1283538869 instance=ExtResource("4_nimes")]
+
+[node name="Player" parent="." unique_id=1636700622 instance=ExtResource("5_2okcp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5495124, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=191978638]
+transform = Transform3D(-0.08667504, 0.9962366, 3.7112708e-09, -0.42377523, -0.036869485, 0.9050167, 0.9016108, 0.07844235, 0.4253761, 0, 7.3292823, 5.777547)

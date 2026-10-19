@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c88xdlks3mvuy"]
+
+[ext_resource type="Script" uid="uid://dx8vk4nd6rv4u" path="res://content/entities/coin/coin.gd" id="1_el688"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_y8ryg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ltepe"]
+albedo_color = Color(1, 0.8627451, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_vlghu"]
+material = SubResource("StandardMaterial3D_ltepe")
+
+[node name="Coin" type="Area3D" unique_id=197285148]
+script = ExtResource("1_el688")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2027729246]
+transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 0, 0)
+shape = SubResource("SphereShape3D_y8ryg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1800276064]
+transform = Transform3D(0.425, 0, 0, 0, 0.47, 0, 0, 0, 0.11, 0, 0, 0)
+mesh = SubResource("SphereMesh_vlghu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

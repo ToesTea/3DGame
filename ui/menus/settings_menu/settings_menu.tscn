@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dj1pyns3f1tk6"]
+
+[ext_resource type="Script" uid="uid://dohseud2q72r0" path="res://ui/menus/settings_menu/settings_menu.gd" id="1_yt4c7"]
+
+[node name="SettingsMenu" type="Control" unique_id=1832867431]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yt4c7")
+
+[node name="SpeedSlider" type="HSlider" parent="." unique_id=350078312]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
+offset_left = 438.0
+offset_top = 462.0
+offset_right = 738.0
+offset_bottom = 478.0
+max_value = 300.0
+value = 300.0
+
+[node name="SpeedValueLabel" type="Label" parent="." unique_id=1959679258]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 555.0
+offset_top = 492.0
+offset_right = 595.0
+offset_bottom = 515.0
+
+[node name="BackButton" type="Button" parent="." unique_id=751747936]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_left = 44.0
+offset_top = 548.0
+offset_right = 94.0
+offset_bottom = 598.0
+text = "Back"

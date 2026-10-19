@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cvralqt5cww42"]
+
+[ext_resource type="Script" uid="uid://cvhal16vawjm8" path="res://main/main.gd" id="1_53q0u"]
+[ext_resource type="PackedScene" uid="uid://car0qwswnlp78" path="res://ui/menus/main_menu/main_menu.tscn" id="2_3wy1v"]
+[ext_resource type="PackedScene" uid="uid://dj1pyns3f1tk6" path="res://ui/menus/settings_menu/settings_menu.tscn" id="3_kfbq2"]
+[ext_resource type="PackedScene" uid="uid://c0ltsnreq08qa" path="res://ui/menus/pause_menu/pause_menu.tscn" id="4_4dugh"]
+[ext_resource type="PackedScene" uid="uid://brgavworkgh5y" path="res://content/gameplay/gameplay.tscn" id="5_67ri8"]
+
+[node name="Main" type="Node" unique_id=465828237]
+script = ExtResource("1_53q0u")
+main_menu_scene = ExtResource("2_3wy1v")
+settings_scene = ExtResource("3_kfbq2")
+pause_menu_scene = ExtResource("4_4dugh")
+gameplay_scene = ExtResource("5_67ri8")
