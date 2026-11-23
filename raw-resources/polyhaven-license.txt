@@ -1,0 +1,19 @@
+Exercise 8 assets - Poly Haven - CC0 1.0
+License: https://polyhaven.com/license
+CC0: https://creativecommons.org/publicdomain/zero/1.0/
+
+HDRI: Kloofendal 48d Partly Cloudy Puresky
+https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky
+Downloaded as 1k Radiance HDR. Used in PanoramaSkyMaterial.
+
+Brick: Red Brick 03
+https://polyhaven.com/a/red_brick_03
+Downloaded 1k JPG albedo, OpenGL normal, and roughness maps.
+
+Rust: Rusty Metal 02
+https://polyhaven.com/a/rusty_metal_02
+Downloaded 1k JPG albedo.
+The matching rust_metallic.png and rust_roughness.png were derived from
+its rust colour: orange/brown areas are rough nonmetal; neutral areas
+are smooth metal. These are modified maps, not original vendor maps.
+Only the images used by the gallery are included.

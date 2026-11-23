@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cwib3026kpc75"]
+
+[ext_resource type="Script" path="res://content/gameplay/gameplay.gd" id="1"]
+[ext_resource type="PackedScene" path="res://content/entities/player/player.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://content/levels/level_02/level_02.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://ui/hud/hud.tscn" id="4"]
+
+[node name="Gameplay" type="Node3D"]
+process_mode = 1
+script = ExtResource("1")
+
+[node name="Level02" parent="." instance=ExtResource("3")]
+
+[node name="Player" parent="." instance=ExtResource("2")]
+position = Vector3(0, 0.1, 6)
+
+[node name="HUD" parent="." instance=ExtResource("4")]

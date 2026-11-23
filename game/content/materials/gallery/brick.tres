@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://content/materials/gallery/textures/brick_albedo.jpg" id="Albedo"]
+[ext_resource type="Texture2D" path="res://content/materials/gallery/textures/brick_normal.jpg" id="Normal"]
+[ext_resource type="Texture2D" path="res://content/materials/gallery/textures/brick_roughness.jpg" id="Roughness"]
+
+[resource]
+albedo_texture = ExtResource("Albedo")
+normal_enabled = true
+normal_texture = ExtResource("Normal")
+roughness = 1.0
+roughness_texture = ExtResource("Roughness")
+roughness_texture_channel = 0

@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://0py3l1mn6tsw"]
+
+[ext_resource type="Material" path="res://content/materials/gallery/brick.tres" id="brick"]
+[ext_resource type="Material" path="res://content/materials/gallery/glass.tres" id="glass"]
+[ext_resource type="Material" path="res://content/materials/gallery/glossy.tres" id="glossy"]
+[ext_resource type="Material" path="res://content/materials/gallery/matte.tres" id="matte"]
+[ext_resource type="Material" path="res://content/materials/gallery/metal.tres" id="metal"]
+[ext_resource type="Material" path="res://content/materials/gallery/mirror.tres" id="mirror"]
+[ext_resource type="Material" path="res://content/materials/gallery/rust.tres" id="rust"]
+
+[sub_resource type="SphereMesh" id="Sphere"]
+radius = 0.7
+height = 1.4
+radial_segments = 32
+rings = 16
+
+[sub_resource type="SphereShape3D" id="SphereShape"]
+radius = 0.7
+
+[sub_resource type="BoxMesh" id="Box"]
+size = Vector3(1.4, 1.4, 1.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape"]
+size = Vector3(1.4, 1.4, 1.4)
+
+[node name="MaterialGallery" type="Node3D" unique_id=280739821]
+
+[node name="Matte" type="Node3D" parent="." unique_id=649164565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 5)
+
+[node name="Sample" type="StaticBody3D" parent="Matte" unique_id=1176125485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Matte/Sample" unique_id=2098733889]
+material_override = ExtResource("matte")
+mesh = SubResource("Sphere")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Matte/Sample" unique_id=2111801289]
+shape = SubResource("SphereShape")
+
+[node name="Glossy" type="Node3D" parent="." unique_id=832505536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 5)
+
+[node name="Sample" type="StaticBody3D" parent="Glossy" unique_id=1157558340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Glossy/Sample" unique_id=798140692]
+material_override = ExtResource("glossy")
+mesh = SubResource("Sphere")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Glossy/Sample" unique_id=413987956]
+shape = SubResource("SphereShape")
+
+[node name="Metal" type="Node3D" parent="." unique_id=292034964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="Sample" type="StaticBody3D" parent="Metal" unique_id=1262870003]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Metal/Sample" unique_id=1584202560]
+material_override = ExtResource("metal")
+mesh = SubResource("Sphere")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Metal/Sample" unique_id=378119832]
+shape = SubResource("SphereShape")
+
+[node name="Brick" type="Node3D" parent="." unique_id=399257745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 2)
+
+[node name="Sample" type="StaticBody3D" parent="Brick" unique_id=1940463487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Brick/Sample" unique_id=910900094]
+material_override = ExtResource("brick")
+mesh = SubResource("Box")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Brick/Sample" unique_id=2043482695]
+shape = SubResource("BoxShape")
+
+[node name="Glass" type="Node3D" parent="." unique_id=472189448]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1)
+
+[node name="Sample" type="StaticBody3D" parent="Glass" unique_id=192059254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Glass/Sample" unique_id=1674266213]
+material_override = ExtResource("glass")
+cast_shadow = 0
+mesh = SubResource("Sphere")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Glass/Sample" unique_id=1027646142]
+shape = SubResource("SphereShape")
+
+[node name="Mirror" type="Node3D" parent="." unique_id=726822341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, -1)
+
+[node name="Sample" type="StaticBody3D" parent="Mirror" unique_id=430425292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Mirror/Sample" unique_id=1706069305]
+layers = 2
+material_override = ExtResource("mirror")
+mesh = SubResource("Sphere")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mirror/Sample" unique_id=1268705567]
+shape = SubResource("SphereShape")
+
+[node name="Rust" type="Node3D" parent="." unique_id=3749064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -4.5)
+
+[node name="Sample" type="StaticBody3D" parent="Rust" unique_id=1196622823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+collision_mask = 2
+
+[node name="Mesh" type="MeshInstance3D" parent="Rust/Sample" unique_id=1344042840]
+layers = 4
+material_override = ExtResource("rust")
+mesh = SubResource("Sphere")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Rust/Sample" unique_id=165366740]
+shape = SubResource("SphereShape")
+
+[node name="MirrorProbe" type="ReflectionProbe" parent="." unique_id=395852088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.3, -1)
+layers = 2
+max_distance = 14.0
+size = Vector3(4.5, 4, 4.5)
+cull_mask = 1
+reflection_mask = 2
+
+[node name="RustProbe" type="ReflectionProbe" parent="." unique_id=1746445802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 1.3, -4.5)
+layers = 4
+update_mode = 1
+max_distance = 12.0
+size = Vector3(4, 3.5, 4)
+cull_mask = 1
+reflection_mask = 4

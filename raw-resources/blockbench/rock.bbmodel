@@ -1,0 +1,270 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "free",
+    "box_uv": false
+  },
+  "name": "rock",
+  "resolution": {
+    "width": 64,
+    "height": 8
+  },
+  "elements": [
+    {
+      "name": "Faceted stone",
+      "type": "mesh",
+      "uuid": "bb580122-e8e1-51e6-ab77-cdb38305e45b",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "vertices": {
+        "v0": [
+          -13,
+          0,
+          -9
+        ],
+        "v1": [
+          11,
+          0,
+          -11
+        ],
+        "v2": [
+          16,
+          0,
+          7
+        ],
+        "v3": [
+          -8,
+          0,
+          13
+        ],
+        "v4": [
+          -8,
+          13,
+          -5
+        ],
+        "v5": [
+          7,
+          18,
+          -4
+        ],
+        "v6": [
+          9,
+          11,
+          7
+        ],
+        "v7": [
+          -5,
+          15,
+          8
+        ]
+      },
+      "faces": {
+        "f0": {
+          "vertices": [
+            "v0",
+            "v1",
+            "v5",
+            "v4"
+          ],
+          "uv": {
+            "v0": [
+              12,
+              4
+            ],
+            "v1": [
+              12,
+              4
+            ],
+            "v5": [
+              12,
+              4
+            ],
+            "v4": [
+              12,
+              4
+            ]
+          },
+          "texture": 0
+        },
+        "f1": {
+          "vertices": [
+            "v1",
+            "v2",
+            "v6",
+            "v5"
+          ],
+          "uv": {
+            "v1": [
+              12,
+              4
+            ],
+            "v2": [
+              12,
+              4
+            ],
+            "v6": [
+              12,
+              4
+            ],
+            "v5": [
+              12,
+              4
+            ]
+          },
+          "texture": 0
+        },
+        "f2": {
+          "vertices": [
+            "v2",
+            "v3",
+            "v7",
+            "v6"
+          ],
+          "uv": {
+            "v2": [
+              12,
+              4
+            ],
+            "v3": [
+              12,
+              4
+            ],
+            "v7": [
+              12,
+              4
+            ],
+            "v6": [
+              12,
+              4
+            ]
+          },
+          "texture": 0
+        },
+        "f3": {
+          "vertices": [
+            "v3",
+            "v0",
+            "v4",
+            "v7"
+          ],
+          "uv": {
+            "v3": [
+              12,
+              4
+            ],
+            "v0": [
+              12,
+              4
+            ],
+            "v4": [
+              12,
+              4
+            ],
+            "v7": [
+              12,
+              4
+            ]
+          },
+          "texture": 0
+        },
+        "f4": {
+          "vertices": [
+            "v4",
+            "v5",
+            "v6"
+          ],
+          "uv": {
+            "v4": [
+              12,
+              4
+            ],
+            "v5": [
+              12,
+              4
+            ],
+            "v6": [
+              12,
+              4
+            ]
+          },
+          "texture": 0
+        },
+        "f5": {
+          "vertices": [
+            "v4",
+            "v6",
+            "v7"
+          ],
+          "uv": {
+            "v4": [
+              12,
+              4
+            ],
+            "v6": [
+              12,
+              4
+            ],
+            "v7": [
+              12,
+              4
+            ]
+          },
+          "texture": 0
+        },
+        "f6": {
+          "vertices": [
+            "v3",
+            "v2",
+            "v1",
+            "v0"
+          ],
+          "uv": {
+            "v3": [
+              12,
+              4
+            ],
+            "v2": [
+              12,
+              4
+            ],
+            "v1": [
+              12,
+              4
+            ],
+            "v0": [
+              12,
+              4
+            ]
+          },
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "bb580122-e8e1-51e6-ab77-cdb38305e45b"
+  ],
+  "textures": [
+    {
+      "path": "",
+      "name": "island_palette.png",
+      "id": "0",
+      "uuid": "0a090eea-cc64-5d86-84b7-90ed5ff14721",
+      "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAICAIAAADGAG6IAAAAP0lEQVR4nGPQdwjGisLSq7Gi9ikLsSJFX1+syKwsCytK9LTEiu6vScGK/j9agBUxjHpg1AOjHhj1wKgHKPEAABQitp+zR6EIAAAAAElFTkSuQmCC",
+      "mode": "bitmap",
+      "saved": false,
+      "width": 64,
+      "height": 8,
+      "uv_width": 64,
+      "uv_height": 8
+    }
+  ]
+}

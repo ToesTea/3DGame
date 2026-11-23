@@ -1,0 +1,96 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://content/entities/goal/goal.gd" id="1"]
+[ext_resource type="PackedScene" path="res://content/models/ruin_arch.glb" id="2"]
+
+[sub_resource type="BoxShape3D" id="GoalShape"]
+size = Vector3(3.8, 3.5, 2.8)
+
+[sub_resource type="BoxShape3D" id="PillarShape"]
+size = Vector3(1.1, 4.56, 1.19)
+
+[sub_resource type="StandardMaterial3D" id="GateMaterial"]
+albedo_color = Color(0.2, 0.7, 0.65, 0.35)
+transparency = 1
+emission_enabled = true
+emission = Color(0.12, 0.55, 0.45, 1)
+emission_energy_multiplier = 1.5
+
+[sub_resource type="BoxMesh" id="GateMesh"]
+material = SubResource("GateMaterial")
+size = Vector3(2.7, 3.3, 0.12)
+
+[sub_resource type="BoxShape3D" id="FootShape"]
+size = Vector3(1.52, 0.51, 1.69)
+
+[sub_resource type="BoxShape3D" id="LintelShape"]
+size = Vector3(6.42, 1.02, 1.52)
+
+[sub_resource type="BoxShape3D" id="CrownShape"]
+size = Vector3(2.11, 0.51, 1.69)
+
+[node name="Goal" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1")
+required_coins = 8
+
+[node name="Arch" parent="." instance=ExtResource("2")]
+scale = Vector3(1.35, 1.35, 1.35)
+
+[node name="Pillars" type="StaticBody3D" parent="."]
+collision_layer = 1
+collision_mask = 2
+
+[node name="Left" type="CollisionShape3D" parent="Pillars"]
+position = Vector3(-2.447, 2.531, 0)
+shape = SubResource("PillarShape")
+
+[node name="Right" type="CollisionShape3D" parent="Pillars"]
+position = Vector3(2.447, 2.531, 0)
+shape = SubResource("PillarShape")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 1.75, 0)
+shape = SubResource("GoalShape")
+
+[node name="Gate" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.65, 0)
+mesh = SubResource("GateMesh")
+
+[node name="Light" type="SpotLight3D" parent="." groups=["shadow_lights"]]
+position = Vector3(0, 7, 2)
+rotation = Vector3(-1.28, 0, 0)
+light_color = Color(1, 0.8, 0.4, 1)
+light_energy = 5.0
+spot_range = 14.0
+spot_angle = 38.0
+shadow_enabled = true
+shadow_bias = 0.03
+shadow_normal_bias = 0.6
+
+[node name="Label" type="Label3D" parent="."]
+position = Vector3(0, 6.9, 0)
+billboard = 1
+text = "LANTERN GATE"
+font_size = 32
+pixel_size = 0.006
+modulate = Color(1, 0.85, 0.5, 1)
+outline_size = 5
+visibility_range_end = 17.0
+
+[node name="LeftFoot" type="CollisionShape3D" parent="Pillars"]
+position = Vector3(-2.447, 0.253, 0)
+shape = SubResource("FootShape")
+
+[node name="RightFoot" type="CollisionShape3D" parent="Pillars"]
+position = Vector3(2.447, 0.253, 0)
+shape = SubResource("FootShape")
+
+[node name="Lintel" type="CollisionShape3D" parent="Pillars"]
+position = Vector3(0, 5.063, 0)
+shape = SubResource("LintelShape")
+
+[node name="Crown" type="CollisionShape3D" parent="Pillars"]
+position = Vector3(0, 5.822, 0)
+shape = SubResource("CrownShape")

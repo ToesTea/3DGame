@@ -1,0 +1,263 @@
+[gd_scene format=3 uid="uid://bs0vqh61i2pvu"]
+
+[ext_resource type="PackedScene" path="res://content/entities/checkpoint/checkpoint.tscn" id="Checkpoint"]
+[ext_resource type="PackedScene" uid="uid://borf4ldsjw64h" path="res://content/entities/coin/coin.tscn" id="Coin"]
+[ext_resource type="Script" uid="uid://cfqhd2ne1ou48" path="res://content/entities/hazard/hazard.gd" id="DangerScript"]
+[ext_resource type="Environment" path="res://content/materials/island_environment.tres" id="Environment"]
+[ext_resource type="PackedScene" path="res://content/entities/goal/goal.tscn" id="Goal"]
+[ext_resource type="Texture2D" uid="uid://dwko7n2cmauu7" path="res://content/levels/level_02/texture_08.png" id="Grid"]
+[ext_resource type="PackedScene" path="res://content/entities/hazard/rotating_beam.tscn" id="Hazard"]
+[ext_resource type="PackedScene" path="res://content/models/lantern.tscn" id="Lantern"]
+[ext_resource type="PackedScene" path="res://content/models/pine.tscn" id="Pine"]
+[ext_resource type="PackedScene" path="res://content/entities/moving_platform/moving_platform.tscn" id="Platform"]
+
+[ext_resource type="PackedScene" path="res://content/entities/material_gallery/material_gallery.tscn" id="Gallery"]
+
+[sub_resource type="StandardMaterial3D" id="Stone"]
+albedo_color = Color(0.28, 0.35, 0.42, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Grass"]
+albedo_color = Color(0.3, 0.65, 0.3, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Path"]
+albedo_color = Color(0.67, 0.6, 0.43, 1)
+albedo_texture = ExtResource("Grid")
+roughness = 0.9
+uv1_scale = Vector3(0.6, 0.6, 0.6)
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="PlaneMesh" id="LandingPathMesh"]
+material = SubResource("Path")
+size = Vector2(2.8, 14.8)
+
+[sub_resource type="PlaneMesh" id="CrossingPathMesh"]
+material = SubResource("Path")
+size = Vector2(2.8, 12)
+
+[sub_resource type="PlaneMesh" id="SanctuaryPathMesh"]
+material = SubResource("Path")
+size = Vector2(3.2, 15.5)
+
+[sub_resource type="StandardMaterial3D" id="Wood"]
+albedo_color = Color(0.43, 0.29, 0.18, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Ruins"]
+albedo_color = Color(0.52, 0.58, 0.58, 1)
+roughness = 0.9
+
+[sub_resource type="StandardMaterial3D" id="Water"]
+albedo_color = Color(0.2, 0.45, 0.8, 1)
+roughness = 0.9
+
+[sub_resource type="BoxShape3D" id="WaterShape"]
+size = Vector3(250, 1, 250)
+
+[node name="Level02" type="Node3D" unique_id=1497564714]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=839570910]
+environment = ExtResource("Environment")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=214739374 groups=["shadow_lights"]]
+transform = Transform3D(0.8525245, 0.409435, -0.32490763, 0, 0.62161, 0.7833269, 0.52268726, -0.66780543, 0.52993774, 0, 0, 0)
+light_color = Color(1, 0.95, 0.88, 1)
+light_energy = 0.8
+shadow_enabled = true
+shadow_bias = 0.035
+shadow_normal_bias = 0.65
+directional_shadow_max_distance = 110.0
+
+[node name="Landing" type="CSGCombiner3D" parent="." unique_id=1108753610]
+use_collision = true
+collision_mask = 2
+
+[node name="Cliff" type="CSGBox3D" parent="Landing" unique_id=51478194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.825, 0)
+size = Vector3(18, 5.35, 20)
+material = SubResource("Stone")
+
+[node name="Meadow" type="CSGBox3D" parent="Landing" unique_id=1514625043]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+size = Vector3(18.05, 0.3, 20.05)
+material = SubResource("Grass")
+
+[node name="DockOpening" type="CSGBox3D" parent="Landing" unique_id=122933201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, -9.5)
+operation = 2
+size = Vector3(4.5, 1, 1.4)
+
+[node name="Crossing" type="CSGCombiner3D" parent="." unique_id=1745131797]
+use_collision = true
+collision_mask = 2
+
+[node name="Cliff" type="CSGBox3D" parent="Crossing" unique_id=1607199137]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.225, -25)
+size = Vector3(16, 6.55, 14)
+material = SubResource("Stone")
+
+[node name="Meadow" type="CSGBox3D" parent="Crossing" unique_id=204678135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, -25)
+size = Vector3(16.05, 0.3, 14.05)
+material = SubResource("Grass")
+
+[node name="DockOpening" type="CSGBox3D" parent="Crossing" unique_id=1292471430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, -18.5)
+operation = 2
+size = Vector3(4.5, 1, 1.4)
+
+[node name="Sanctuary" type="CSGCombiner3D" parent="." unique_id=656210007]
+use_collision = true
+collision_mask = 2
+
+[node name="Cliff" type="CSGBox3D" parent="Sanctuary" unique_id=766724665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.625, -48)
+size = Vector3(18, 7.75, 18)
+material = SubResource("Stone")
+
+[node name="Meadow" type="CSGBox3D" parent="Sanctuary" unique_id=995537597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, -48)
+size = Vector3(18.05, 0.3, 18.05)
+material = SubResource("Grass")
+
+[node name="LandingPath" type="MeshInstance3D" parent="." unique_id=1648127344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.003, -1)
+cast_shadow = 0
+mesh = SubResource("LandingPathMesh")
+
+[node name="CrossingPath" type="MeshInstance3D" parent="." unique_id=1168416460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.203, -25.5)
+cast_shadow = 0
+mesh = SubResource("CrossingPathMesh")
+
+[node name="SanctuaryPath" type="MeshInstance3D" parent="." unique_id=1134745413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.403, -47)
+cast_shadow = 0
+mesh = SubResource("SanctuaryPathMesh")
+
+[node name="NearDock" type="CSGBox3D" parent="." unique_id=1852238551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12, -9.5)
+use_collision = true
+size = Vector3(4.5, 0.24, 1.4)
+material = SubResource("Wood")
+
+[node name="FarDock" type="CSGBox3D" parent="." unique_id=1196631155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08, -18.5)
+use_collision = true
+size = Vector3(4.5, 0.24, 1.4)
+material = SubResource("Wood")
+
+[node name="SteppingStone1" type="CSGBox3D" parent="." unique_id=425599705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1.925, -34.3)
+use_collision = true
+size = Vector3(2.4, 7.15, 2.4)
+material = SubResource("Ruins")
+
+[node name="SteppingStone2" type="CSGBox3D" parent="." unique_id=399367610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1.725, -37.5)
+use_collision = true
+size = Vector3(2.4, 7.55, 2.4)
+material = SubResource("Ruins")
+
+[node name="BrokenRuin" type="CSGCombiner3D" parent="." unique_id=1631063764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7, 1.2, -25)
+use_collision = true
+
+[node name="Wall" type="CSGBox3D" parent="BrokenRuin" unique_id=1410683653]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+size = Vector3(3, 3.6, 1)
+material = SubResource("Ruins")
+
+[node name="Opening" type="CSGBox3D" parent="BrokenRuin" unique_id=946270340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+operation = 2
+size = Vector3(1.8, 2.6, 2)
+material = SubResource("Ruins")
+
+[node name="Sea" type="CSGBox3D" parent="." unique_id=2129154134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -25)
+size = Vector3(240, 0.2, 240)
+material = SubResource("Water")
+
+[node name="WaterHazard" type="Area3D" parent="." unique_id=1802634640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, -25)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("DangerScript")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WaterHazard" unique_id=621454177]
+shape = SubResource("WaterShape")
+
+[node name="MovingPlatform" parent="." unique_id=756524620 instance=ExtResource("Platform")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.8)
+
+[node name="Checkpoint" parent="." unique_id=155588525 instance=ExtResource("Checkpoint")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -21.8)
+
+[node name="RotatingBeam" parent="." unique_id=1124085733 instance=ExtResource("Hazard")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -27)
+
+[node name="Goal" parent="." unique_id=1231593380 instance=ExtResource("Goal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, -52)
+
+[node name="Coin01" parent="." unique_id=162454127 instance=ExtResource("Coin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
+
+[node name="Coin02" parent="." unique_id=555412707 instance=ExtResource("Coin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
+
+[node name="Coin03" parent="." unique_id=352925298 instance=ExtResource("Coin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -3)
+
+[node name="Coin04" parent="." unique_id=961184547 instance=ExtResource("Coin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -7.5)
+
+[node name="Coin05" parent="." unique_id=389431666 instance=ExtResource("Coin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, -21)
+
+[node name="Coin06" parent="." unique_id=126685213 instance=ExtResource("Coin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8, 2.2, -25)
+
+[node name="Coin07" parent="." unique_id=1408942610 instance=ExtResource("Coin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2.2, -28)
+
+[node name="Coin08" parent="." unique_id=1600456848 instance=ExtResource("Coin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, -30.8)
+
+[node name="Coin09" parent="." unique_id=510922205 instance=ExtResource("Coin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.65, -34.3)
+
+[node name="Coin10" parent="." unique_id=1785931008 instance=ExtResource("Coin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 3.05, -37.5)
+
+[node name="Coin11" parent="." unique_id=1861351796 instance=ExtResource("Coin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, -44.5)
+
+[node name="Pine02" parent="." unique_id=263372603 instance=ExtResource("Pine")]
+transform = Transform3D(1.1177616, 0, 1.0003045, 0, 1.5, 0, -1.0003045, 0, 1.1177616, -6.2, 0, 6)
+
+[node name="Pine07" parent="." unique_id=1012354662 instance=ExtResource("Pine")]
+transform = Transform3D(-0.4241927, 0, -1.2288451, 0, 1.3, 0, 1.2288451, 0, -0.4241927, 5.4, 1.2, -22)
+
+[node name="Pine10" parent="." unique_id=1490403939 instance=ExtResource("Pine")]
+transform = Transform3D(1.4387248, 0, 0.42434794, 0, 1.5, 0, -0.42434794, 0, 1.4387248, 6, 2.4, -44)
+
+[node name="Lantern2" parent="." unique_id=787522378 instance=ExtResource("Lantern")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7, 0, -8.5)
+
+[node name="Lantern5" parent="." unique_id=1941881104 instance=ExtResource("Lantern")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.4, -50.5)
+
+[node name="FerrySign" type="Label3D" parent="." unique_id=1565916478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, -9)
+visibility_range_end = 17.0
+visibility_range_end_margin = 2.0
+pixel_size = 0.006
+billboard = 1
+modulate = Color(0.93, 0.9, 0.72, 1)
+text = "Jump onto the moving platform"
+outline_size = 5
+
+[node name="MaterialGallery" parent="." instance=ExtResource("Gallery")]

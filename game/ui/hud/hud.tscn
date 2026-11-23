@@ -1,0 +1,46 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://ui/hud/hud.gd" id="1"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Top" type="ColorRect" parent="Root"]
+layout_mode = 0
+anchor_right = 1.0
+offset_bottom = 68.0
+color = Color(0, 0, 0, 0.3)
+mouse_filter = 2
+
+[node name="Coins" type="Label" parent="Root/Top"]
+offset_left = 28.0
+offset_top = 20.0
+offset_right = 600.0
+offset_bottom = 50.0
+text = "COINS  00 / 08"
+
+[node name="Checkpoint" type="Label" parent="Root/Top"]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -390.0
+offset_top = 24.0
+offset_right = -28.0
+offset_bottom = 48.0
+text = "CHECKPOINT  •  NOT LIT"
+horizontal_alignment = 2
+
+[node name="Controls" type="Label" parent="Root"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -42.0
+offset_bottom = -14.0
+text = "WASD / Arrows   Move     •     Space   Jump     •     Mouse / Q E   Look     •     Esc   Pause     •     R   Restart"
+horizontal_alignment = 1

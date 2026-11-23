@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://content/materials/gallery/textures/rust_albedo.jpg" id="Albedo"]
+[ext_resource type="Texture2D" path="res://content/materials/gallery/textures/rust_metallic.png" id="Metallic"]
+[ext_resource type="Texture2D" path="res://content/materials/gallery/textures/rust_roughness.png" id="Roughness"]
+
+[resource]
+albedo_texture = ExtResource("Albedo")
+metallic = 1.0
+metallic_texture = ExtResource("Metallic")
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture = ExtResource("Roughness")
+roughness_texture_channel = 0

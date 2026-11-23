@@ -1,0 +1,72 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://content/entities/checkpoint/checkpoint.gd" id="1"]
+[ext_resource type="PackedScene" path="res://content/models/lantern.glb" id="2"]
+
+[sub_resource type="CylinderShape3D" id="Trigger"]
+radius = 1.5
+height = 2.6
+
+[sub_resource type="StandardMaterial3D" id="Glow"]
+albedo_color = Color(0.2, 0.8, 0.7, 1)
+emission_enabled = true
+emission = Color(0.1, 0.65, 0.48, 1)
+emission_energy_multiplier = 1.5
+
+[sub_resource type="TorusMesh" id="Ring"]
+material = SubResource("Glow")
+inner_radius = 1.1
+outer_radius = 1.3
+rings = 16
+ring_segments = 6
+
+[sub_resource type="BoxShape3D" id="LampShape"]
+size = Vector3(0.75, 3.95, 0.75)
+
+[node name="Checkpoint" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 1.1, 0)
+shape = SubResource("Trigger")
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+position = Vector3(1.6, 0.1, 1.8)
+
+[node name="Lantern" parent="." instance=ExtResource("2")]
+position = Vector3(-2, 0, -0.8)
+
+[node name="Ring" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.018, 0)
+scale = Vector3(1, 0.12, 1)
+mesh = SubResource("Ring")
+
+[node name="Light" type="OmniLight3D" parent="." groups=["shadow_lights"]]
+position = Vector3(-2, 3, -0.8)
+light_color = Color(1, 0.65, 0.28, 1)
+light_energy = 2.0
+omni_range = 8.0
+shadow_enabled = true
+shadow_bias = 0.04
+shadow_normal_bias = 0.6
+
+[node name="Label" type="Label3D" parent="."]
+position = Vector3(0, 4.6, 0)
+billboard = 1
+text = "LIGHT THE CHECKPOINT"
+font_size = 32
+pixel_size = 0.006
+modulate = Color(0.74, 1, 0.87, 1)
+outline_size = 8
+no_depth_test = false
+visibility_range_end = 16.0
+
+[node name="LampBody" type="StaticBody3D" parent="."]
+collision_layer = 1
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LampBody"]
+position = Vector3(-2, 1.975, -0.8)
+shape = SubResource("LampShape")

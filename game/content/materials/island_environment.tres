@@ -1,0 +1,18 @@
+[gd_resource type="Environment" format=3 uid="uid://gr3ivrm5oud2"]
+
+[ext_resource type="Texture2D" uid="uid://d03keq8e03vuc" path="res://content/materials/gallery/textures/sky.hdr" id="Panorama"]
+
+[sub_resource type="PanoramaSkyMaterial" id="SkyMaterial"]
+panorama = ExtResource("Panorama")
+energy_multiplier = 0.8
+
+[sub_resource type="Sky" id="Sky"]
+sky_material = SubResource("SkyMaterial")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky")
+ambient_light_source = 3
+ambient_light_energy = 0.7
+reflected_light_source = 2
+tonemap_mode = 2
